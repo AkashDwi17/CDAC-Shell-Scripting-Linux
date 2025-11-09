@@ -1,0 +1,13 @@
+1. Write a shell script to print "Hello World".
+
+	-> nano hello.sh                          // used to create file
+
+		-> echo "Enter Your Name"               // echo is used to print
+
+		-> read name                            // to take input from user
+
+		-> echo "Welcome $name"                 // to print name enter by user
+
+	-> chmod 777 hello.sh                     // need to give permission // when we access file in terminal then need permission to access
+
+	-> bash hello.sh                          // to print the file data or can say to read 
