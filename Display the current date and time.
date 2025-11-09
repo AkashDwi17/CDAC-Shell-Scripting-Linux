@@ -1,0 +1,6 @@
+2. Write a script to display the current date and time.
+	-> nano display_Date_Time.sh
+		-> echo "Current Date And Time"
+		-> date
+	-> chmod 777 display_Date_Time.sh
+	-> bash display_Date_Time.sh
