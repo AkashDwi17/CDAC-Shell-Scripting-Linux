@@ -1,0 +1,8 @@
+
+4. Write a script to take user input and print it.
+	-> nano userInput.sh
+		-> echo "Enter Your Name"
+		-> read name
+		-> echo "Welcome to dubai $ name"
+	-> chmod 777 userInput.sh
+	-> bash userInput.sh
