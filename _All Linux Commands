@@ -1,0 +1,269 @@
+1. Write a shell script to print "Hello World".
+	-> nano hello.sh
+		-> echo "Enter Your Name"
+		-> read name
+		-> echo "Welcome $name"
+	-> chmod 777 hello.sh
+	-> bash hello.sh
+
+
+2. Write a script to display the current date and time.
+	-> nano display_Date_Time.sh
+		-> echo "Current Date And Time"
+		-> date
+	-> chmod 777 display_Date_Time.sh
+	-> bash display_Date_Time.sh
+
+
+3. Write a script to check if a file exists.
+
+	echo "Enter filename:"
+	read filename
+
+		if [ -f "$filename" ]; then
+    			echo "File exists"
+		else
+    			echo "File does not exist"
+	fi
+
+
+
+4. Write a script to take user input and print it.
+	-> nano userInput.sh
+		-> echo "Enter Your Name"
+		-> read name
+		-> echo "Welcome to dubai $ name"
+	-> chmod 777 userInput.sh
+	-> bash userInput.sh
+
+	nano printName.sh
+		echo "Enter Your Name"
+		read name
+		echo "welcome $name"
+	chmod 777 printName.sh
+	bash printName.sh
+  
+5. Write a script to add two numbers given by the user.
+	-> nano twoSum.sh
+		-> echo "Sum of two number"
+		-> echo "Enter First Number"
+			-> read a
+		-> echo "Enter Second Number"
+			-> read b 
+		-> sum=$((a+b))
+		-> echo "Sum of $a and $b is : $sum"
+	-> chmod 777 twoSum.sh
+	-> bash twoSum.sh
+
+
+
+6. Write a script to check if a number is even or odd.
+	-> nano isEvenOrOdd.sh
+		-> echo "Enter the number: "
+		-> read num
+		-> if ((num%2 == 0)); then
+			echo "$num is even number"
+		-> else
+			echo "$num is odd"
+		
+		-> fi
+
+		chmod 777 isEvenOrOdd.sh
+		bash isEvenOrOdd.sh
+
+
+7. Write a script to display all files and directories in the current path.
+
+
+8. Write a script to count the number of lines in a file.
+	echo "Enter file name:"
+	read file
+	wc -l $file
+
+9. Write a script to check if a user is root.
+
+	user=$(whoami)        // whoami Shows the name of the current user.
+
+	if [ "$user" = "root" ]; then
+    		echo "You are root user."
+	else
+    		echo "You are not root user."
+	fi
+
+
+
+10. Write a script to print first 10 natural numbers using a loop.
+
+	echo "First 10 Natural Numbers:"
+
+	for ((i=1; i<=10; i++))
+		do
+    		echo "$i"
+	done
+
+
+	
+		
+
+================================================================================
+================================================================================
+
+
+1. Write a script to read a file line by line.
+
+2. Write a script to find the largest of three numbers.
+
+echo "Enter first number:"
+	read a
+
+echo "Enter second number:"
+	read b
+
+echo "Enter third number:"
+	read c
+
+if [ $a -ge $b ] && [ $a -ge $c ]; then
+    echo "Largest number is: $a"
+elif [ $b -ge $a ] && [ $b -ge $c ]; then
+    echo "Largest number is: $b"
+else
+    echo "Largest number is: $c"
+fi
+
+
+3. Write a script to check if a string is a palindrome.
+
+echo "Enter a word:"
+read str
+
+rev=$(echo $str | rev)
+
+if [ "$str" == "$rev" ]; then
+    echo " It is a palindrome."
+else
+    echo " It is not a palindrome."
+fi
+
+
+
+4. Write a script to find factorial of a number using while loop.
+
+echo "Enter a number:"
+read num
+
+fact=1
+i=1
+
+while [ $i -le $num ]
+do
+    fact=$((fact * i))
+    i=$((i + 1))
+done
+
+echo "Factorial of $num is: $fact"
+
+5. Write a script to rename all .txt files to .bak files in a directory
+
+#!/bin/bash
+for file in *.txt
+do
+    mv $file ${file%.txt}.bak
+done
+
+echo "All .txt files renamed to .bak files "
+
+
+How to Run
+nano rename_txt_to_bak.sh
+# paste the above code
+
+chmod +x rename_txt_to_bak.sh
+bash rename_txt_to_bak.sh
+
+
+
+6. Write a script to backup a specific directory to another location.
+
+#!/bin/bash
+echo "Enter the source directory (you want to back up):"
+read source
+
+echo "Enter the destination directory (where to store the backup):"
+read destination
+
+cp -r "$source" "$destination"
+
+echo " Backup of '$source' completed successfully to '$destination'."
+
+
+
+
+7. Write a script to monitor disk usage and alert if it crosses 80%
+
+8. Write a script to check if a service is running.
+
+#!/bin/bash
+echo "Enter service name to check:"
+read service
+
+if systemctl is-active --quiet "$service"       // Checks if a service is currently active (running).
+then
+    echo " The service '$service' is running."
+else
+    echo " The service '$service' is NOT running."
+fi
+
+
+
+9. Write a script to extract the username from an email (before @).
+#!/bin/bash
+echo "Enter your email address:"
+read email
+
+username=$(echo $email | cut -d '@' -f 1)
+
+echo "Username is: $username"
+
+
+// read email
+Takes the email address as input.
+cut -d '@' -f 1
+Splits the email by @ and selects the first part.
+
+nano extract_username.sh
+# paste the script above
+
+chmod +x extract_username.sh
+bash extract_username.sh
+
+
+10. Write a script to count total number of files, directories, and links in a folder.
+
+#!/bin/bash
+echo "Enter folder name:"
+read folder
+
+echo "Counting items in '$folder'..."
+
+files=$(ls -l $folder | grep "^-" | wc -l)
+dirs=$(ls -l $folder | grep "^d" | wc -l)
+links=$(ls -l $folder | grep "^l" | wc -l)
+
+echo " Total Files: $files"
+echo " Total Directories: $dirs"
+echo " Total Links: $links"
+
+
+
+ls -l $folder	Lists all items in the folder (detailed view).
+grep "^-"	Selects only files (lines starting with -).
+grep "^d"	Selects only directories (lines starting with d).
+grep "^l"	Selects only symbolic links (lines starting with l).
+wc -l	Counts the number of lines (i.e., total count).
+ How to Run
+nano count_items.sh
+# paste the script above
+
+chmod +x count_items.sh
+bash count_items.sh
+
