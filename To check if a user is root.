@@ -1,0 +1,9 @@
+9. Write a script to check if a user is root.
+
+	user=$(whoami)        // whoami Shows the name of the current user.
+
+	if [ "$user" = "root" ]; then
+    		echo "You are root user."
+	else
+    		echo "You are not root user."
+	fi
