@@ -1,0 +1,12 @@
+Write a script to check if a string is a palindrome.
+
+echo "Enter a word:"
+read str
+
+rev=$(echo $str | rev)
+
+if [ "$str" == "$rev" ]; then
+    echo " It is a palindrome."
+else
+    echo " It is not a palindrome."
+fi
