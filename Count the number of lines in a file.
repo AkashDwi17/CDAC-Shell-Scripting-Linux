@@ -1,0 +1,4 @@
+8. Write a script to count the number of lines in a file.
+	echo "Enter file name:"
+	read file
+	wc -l $file
