@@ -1,0 +1,13 @@
+Write a script to check if a number is even or odd.
+	-> nano isEvenOrOdd.sh
+		-> echo "Enter the number: "
+		-> read num
+		-> if ((num%2 == 0)); then
+			echo "$num is even number"
+		-> else
+			echo "$num is odd"
+		
+		-> fi
+
+		chmod 777 isEvenOrOdd.sh
+		bash isEvenOrOdd.sh
